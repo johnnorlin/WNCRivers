@@ -1,0 +1,39 @@
+#AppContainer {
+  background: url("../public/river_background2.jpg") no-repeat center center
+    fixed;
+  background-size: cover; /* Ensures the background covers the entire container */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 2px solid black;
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /* Hides the overflow content */
+  // display: flex;
+  #Toolbar {
+    position: absolute;
+    bottom: 13%;
+    left: 25%;
+    // justify-content: center;
+    button {
+      height: 6rem;
+      width: 6rem;
+      background-size: contain;
+    }
+    #Net {
+      background-image: url("../public/net_icon.png");
+      background-color: white;
+      margin: 5px;
+      #Net {
+      }
+    }
+
+    #Help {
+      background-image: url("../public/help_icon.png");
+      background-color: white;
+      margin: 5px;
+    }
+  }
+}

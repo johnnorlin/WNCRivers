@@ -1,47 +1,52 @@
-const path = require('path');
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./client/index.js",
-  output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "bundle.js",
+  mode: process.env.NODE_ENV,
+  entry: {
+    src: "./client/index.js",
   },
-
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: "./client/index.html",
-    }),
-  ],
-
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "bundle.js",
+    publicPath: "/",
+    clean: true,
+  },
+  devtool: "eval-source-map",
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-          },
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"],
         },
       },
       {
-        test: /.(css|scss)$/,
-        exclude: /node_modules/,
-        use: ["style-loader", 'css-loader'],
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Development",
+      template: path.resolve(__dirname, "./client/index.html"),
+    }),
+  ],
   devServer: {
+    static: {
+      directory: path.resolve(__dirname, "build"),
+    },
     port: 8080,
+    historyApiFallback: true,
+    proxy: {
+      "/": "http://localhost:3000",
+    },
   },
 };
