@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import dish_background from "../../public/dish_background.jpg";
 import debris9 from "../../public/Debris/debris9.png";
 import craneflylarvasil from "../../public/Cranefly/craneflylarvasil.png";
 
@@ -43,7 +44,7 @@ const PetriDish = () => {
   return (
     <div
       style={{
-        backgroundColor: "lightblue",
+        backgroundImage: `url(${dish_background})`,
         position: "relative",
         height: "75%",
         width: "36%",
