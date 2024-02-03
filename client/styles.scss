@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Drift Wood";
+  src: local("Driftwood"),
+    url("../public/fonts/Driftwood.ttf") format("truetype");
+}
+
 #AppContainer {
   background: url("../public/river_background2.jpg") no-repeat center center
     fixed;
@@ -11,11 +17,28 @@
   padding: 0;
   margin: 0;
   overflow: hidden; /* Hides the overflow content */
-  // display: flex;
-  #Toolbar {
+  display: flex;
+  justify-content: center;
+  h1 {
+    font-family: "Drift Wood", sans-serif;
+    font-size: 60px;
+  }
+  .Lab {
+    background-color: white;
+    border: 10px solid rgb(94, 26, 26);
+    width: 50%;
+    height: 50%;
     position: absolute;
-    bottom: 13%;
-    left: 25%;
+    top: 15%;
+    display: flex;
+    align-items: center;
+  }
+  #Toolbar {
+    border: 10px solid rgb(94, 26, 26);
+    background-color: white;
+    position: absolute;
+    bottom: 10%;
+    // left: 25%;
     // justify-content: center;
     button {
       height: 6rem;
@@ -26,13 +49,16 @@
       background-image: url("../public/net_icon.png");
       background-color: white;
       margin: 5px;
-      #Net {
-      }
     }
 
     #Help {
       background-image: url("../public/help_icon.png");
       background-color: white;
+      margin: 5px;
+    }
+
+    #Stars {
+      background-image: url("../public/star_icon.png");
       margin: 5px;
     }
   }
