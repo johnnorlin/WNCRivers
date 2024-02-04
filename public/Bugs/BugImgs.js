@@ -1,15 +1,16 @@
-import blackflylarvasil from "./blackflylarvasil";
-import craneflylarvasil from "./craneflylarvasil";
-import dobsonflyhellgramiteIMsil from "./dobsonflyhellgramiteIMsil";
-import dragonflynymphsmallsil from "./dragonflynymphsmallsil";
-import waterpennysil from "./waterpennysil";
+import bug1 from "./blackflylarvasil.png";
+import bug2 from "./craneflylarvasil.png";
+import bug3 from "./dobsonflyhellgramiteIMsil.png";
+import bug4 from "./dragonflynymphsmallsil.png";
+import bug5 from "./waterpennysil.png";
 
 const BugImgs = {
-  blackflylarvasil,
-  craneflylarvasil,
-  dobsonflyhellgramiteIMsil,
-  dragonflynymphsmallsil,
-  waterpennysil,
+  bug1,
+  bug2,
+  bug3,
+  bug4,
+  bug5,
+  bug6,
 };
 
 export default BugImgs;
