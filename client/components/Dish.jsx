@@ -97,7 +97,8 @@
 import React, { useState, useEffect } from "react";
 import dish_background from "../../public/dish_background.jpg";
 import DebrisImgs from "../../public/Debris/Debris.js";
-import BugImgs from "../../public/Bugs/BugImgs.js";
+console.log(DebrisImgs);
+import BugImgs from "../../public/Bugs/Bugs.js";
 console.log(BugImgs);
 
 const PetriDish = () => {
@@ -117,7 +118,7 @@ const PetriDish = () => {
     // Generate random bugs and debris
     const generateRandomItems = (count, type) => {
       const items = [];
-      for (let i = 0; i < count; i++) {
+      for (let i = 1; i <= count; i++) {
         items.push({
           id: i,
           type,
@@ -168,7 +169,7 @@ const PetriDish = () => {
       {bugs.map((bug) => (
         <img
           key={bug.id}
-          // src={BugImgs[bug.id]}
+          src={BugImgs[`bug${bug.id}`]}
           alt="bug"
           style={{
             width: "30px",
