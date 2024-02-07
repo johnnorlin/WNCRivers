@@ -5,6 +5,7 @@ export const pageSlice = createSlice({
   //intial states should be what?
   initialState: {
     page: null,
+    bug: null,
   },
   reducers: {
     //dispatch(booleanSet(cloudInfo))
@@ -13,9 +14,14 @@ export const pageSlice = createSlice({
         state.page = null;
       } else state.page = action.payload;
     },
+    setBug: (state, action) => {
+      if (state.bug === action.payload) {
+        state.bug = null;
+      } else state.bug = action.payload;
+    },
   },
 });
 
-export const { setPage } = pageSlice.actions;
+export const { setPage, setBug } = pageSlice.actions;
 
 export default pageSlice.reducer;
