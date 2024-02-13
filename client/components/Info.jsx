@@ -2,21 +2,18 @@ import React from "react";
 import { useDrop } from "react-dnd";
 
 const Info = () => {
-  // const [{ isOver }, drop] = useDrop({
-  //   accept: "bug",
-  //   drop: (item) => onDrop(item),
-  //   collect: (monitor) => ({
-  //     isOver: !!monitor.isOver(),
-  //   }),
-  // });
+  const [{ canDrop, isOver }, drop] = useDrop({
+    accept: "bug",
+    drop: (item) => addBugToInfo(item.id),
+  });
 
   return (
     <div
       id="info"
-      // ref={drop}
+      ref={drop}
       style={{
         border: "1px solid #ccc",
-        // backgroundColor: isOver ? "#f0f0f0" : "transparent",
+        backgroundColor: isOver ? "#f0f0f0" : "transparent",
       }}
     ></div>
   );

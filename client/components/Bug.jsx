@@ -2,21 +2,19 @@ import React from "react";
 import { useDrag } from "react-dnd";
 
 const Bug = ({ id, image, position, rotation, onDrag }) => {
-  const [, drag] = useDrag({
+  const [{ isDragging }, drag] = useDrag(() => ({
     type: "bug",
-    item: { id, type: "bug" },
-    end: (item, monitor) => {
-      const dropResult = monitor.getDropResult();
-      if (dropResult) {
-        // Handle drop if needed
-      }
-    },
-  });
+    item: { id: id },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
 
   return (
     <img
       ref={drag}
       src={image}
+      id={id}
       alt="bug"
       style={{
         width: "30px",
@@ -26,7 +24,6 @@ const Bug = ({ id, image, position, rotation, onDrag }) => {
         transform: `rotate(${rotation}deg)`,
         cursor: "grab",
       }}
-      onClick={() => onDrag(id)}
     />
   );
 };
