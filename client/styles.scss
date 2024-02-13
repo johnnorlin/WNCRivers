@@ -30,8 +30,18 @@
     height: 50%;
     position: absolute;
     top: 15%;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "dish info";
+    place-items: center;
+    #dish {
+      position: relative;
+      grid-area: dish;
+    }
+    #info {
+      grid-area: info;
+    }
   }
   #Toolbar {
     border: 10px solid rgb(94, 26, 26);
