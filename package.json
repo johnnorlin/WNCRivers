@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"nodemon ./server/server.js\" \"webpack-dev-server --mode development --open --hot\"",
-    "build": "webpack --mode production"
+    "dev": "concurrently \"nodemon ./server/server.js\" \"webpack-dev-server --mode development --open --hot\"",
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode production --open"
   },
   "keywords": [],
   "author": "",
