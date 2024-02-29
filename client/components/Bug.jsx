@@ -1,7 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useDrag } from "react-dnd";
+import { setBug } from "../src/redux/slices/pageSlice";
 
-const Bug = ({ id, image, position, rotation, onDrag }) => {
+const Bug = ({ id, image, position, rotation }) => {
+  const dispatch = useDispatch();
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "bug",
     item: { id: id },
