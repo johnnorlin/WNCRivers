@@ -1,6 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setBug, setBugs, setDebris } from "../src/redux/slices/pageSlice.js";
+import {
+  setBug,
+  setBugs,
+  setDebris,
+  setSuccess,
+} from "../src/redux/slices/pageSlice.js";
 import dish_background from "../../public/dish_background.jpg";
 import dish_ripples from "../../public/dish_ripples.gif";
 import DebrisImgs from "../../public/Debris/Debris.js";
@@ -14,6 +19,7 @@ const Dish = () => {
   const bugs = useSelector((state) => state.page.bugs);
   const debris = useSelector((state) => state.page.debris);
   const info = useSelector((state) => state.page.bug);
+  const success = useSelector((state) => state.page.success);
   const dispatch = useDispatch();
 
   const getRandomPosition = () => ({
@@ -102,6 +108,7 @@ const Dish = () => {
           ))}
       </div>
       <div ref={drop} id="info">
+        {success.length >= 1 ? [...success] : null}
         {info
           ? bugs
               .filter((bug) => (info ? bug.id === info.id : false))

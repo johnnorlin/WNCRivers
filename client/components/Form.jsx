@@ -1,13 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setSuccess } from "../src/redux/slices/pageSlice";
 // import info_images from "./filepath"
 
 const Form = (props) => {
   const { id } = props;
   console.log(id);
+  const names = {
+    1: "Blackfly",
+    2: "Cranefly",
+    3: "Dobsonfly",
+    4: "DragonFly Nymph",
+    5: "Water Penny",
+  };
+  const dispatch = useDispatch();
 
   const handleSelect = (e) => {
     if (e.target.value == id) {
       console.log("match!");
+      dispatch(setSuccess(names[e.target.value]));
     } else console.log("try again...");
   };
   return (

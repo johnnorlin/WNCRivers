@@ -8,6 +8,7 @@ export const pageSlice = createSlice({
     bug: {},
     bugs: [],
     debris: [],
+    success: [],
   },
   reducers: {
     //dispatch(booleanSet(cloudInfo))
@@ -25,9 +26,13 @@ export const pageSlice = createSlice({
     setDebris: (state, action) => {
       state.debris = [...action.payload];
     },
+    setSuccess: (state, action) => {
+      state.success = [...state.success, ...action.payload];
+    },
   },
 });
 
-export const { setPage, setBug, setBugs, setDebris } = pageSlice.actions;
+export const { setPage, setBug, setBugs, setDebris, setSuccess } =
+  pageSlice.actions;
 
 export default pageSlice.reducer;
