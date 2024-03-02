@@ -52,7 +52,11 @@
         background-color: white;
         img {
           transform: rotate(90deg);
-          height: 20%;
+          height: 30%;
+        }
+        img:hover {
+          transform: rotate(90deg);
+          height: 75%;
         }
         #content {
           display: flex;

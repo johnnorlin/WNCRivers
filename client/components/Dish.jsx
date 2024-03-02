@@ -5,6 +5,7 @@ import dish_background from "../../public/dish_background.jpg";
 import dish_ripples from "../../public/dish_ripples.gif";
 import DebrisImgs from "../../public/Debris/Debris.js";
 import BugImgs from "../../public/Bugs/Bugs.js";
+import BugImgsReal from "../../public/BugsReal/BugsReal.js";
 import Bug from "./Bug.jsx";
 import Form from "./Form.jsx";
 import { useDrop } from "react-dnd";
@@ -101,15 +102,17 @@ const Dish = () => {
           ))}
       </div>
       <div ref={drop} id="info">
-        {bugs
-          .filter((bug) => (info ? bug.id === info.id : false))
-          .map((bug) => (
-            <img src={BugImgs[bug.image]} />
-          ))}
+        {info
+          ? bugs
+              .filter((bug) => (info ? bug.id === info.id : false))
+              .map((bug) => <img src={BugImgsReal[bug.image]} />)
+          : null}
         <div id="content">
           {/*pass in selected bug to form*/}
-          <Form />
-          <button onClick={() => clearBug()}>Release Bug</button>
+          {info ? <Form id={info.id} /> : null}
+          {info ? (
+            <button onClick={() => clearBug()}>Release Bug</button>
+          ) : null}
         </div>
       </div>
     </div>
